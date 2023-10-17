@@ -1,0 +1,16 @@
+Payroll
+Time Sheet
+Projects
+Approvals
+Leaves
+Fiancials
+Purchase
+Expenses
+Accounts
+
+
+We need the following pages: 
+Accounts Employee
+Positions - (Salary Range, Leave Days)
+Compensations
+

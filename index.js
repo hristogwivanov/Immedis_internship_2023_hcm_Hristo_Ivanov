@@ -21,6 +21,6 @@ app.use(authentication);
 app.use(routes);
 
 mongoose.set('strictQuery', false);
-mongoose.set('mongodb://127.0.0.1/HCM');
+mongoose.connect('mongodb://127.0.0.1/HCM');
 
 app.listen(5000, () => console.log('Server is running on port 5000...'));
