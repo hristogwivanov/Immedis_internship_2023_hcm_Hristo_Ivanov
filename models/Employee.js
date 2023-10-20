@@ -35,6 +35,14 @@ const employeeSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Role' 
     },
+    trainingsAttended: [
+        {
+            training: {
+                type: mongoose.Types.ObjectId,
+                ref: 'Training'
+            },
+        }
+    ]
 });
 
 const Employee = mongoose.model('Employee', employeeSchema);
