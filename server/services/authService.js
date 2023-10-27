@@ -1,3 +1,16 @@
+const User = require('../models/User');
+const bcrtypt = require('bcrypt');
+const jwt = require ('../lib/jsonwebtoken');
+const { SECRET } = require('../constants');
+
+exports.findByEmail = (email) => User.findOne({email});
+
+exports.registerAdmin = async (email, password) => {
+
+}
+
+
+
 exports.login = async (email, password) => {
     const user = await this.findbyEmail(email);
 

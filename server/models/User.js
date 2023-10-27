@@ -10,10 +10,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         minLength: 4,
         required: true,
-    },
-    emplID: {
-        type: String,
-        required: true,
     }
 });
 

@@ -13,7 +13,7 @@ app.use(cookieParser());
 // Define your frontend routes and views
 app.get('/', (req, res) => {
   // Handle rendering of your frontend views here
-  res.render('home', { pageTitle: 'Frontend App', message: 'Hello from the frontend!' });
+  res.render('home/home', { pageTitle: 'Frontend App', message: 'Hello from the frontend!' });
 });
 
 app.listen(3000, () => {
