@@ -6,8 +6,10 @@ const { SECRET } = require('../constants');
 exports.findByEmail = (email) => User.findOne({email});
 
 exports.registerAdmin = async (email, password) => {
-
-}
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await User.create({ email, password: hashedPassword, type: "admin"})
+    return this. login(email, password)
+};
 
 
 
