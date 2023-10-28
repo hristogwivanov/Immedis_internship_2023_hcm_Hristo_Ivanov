@@ -3,17 +3,17 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
-        minLength: 10, 
+        minLength: 5, 
         required: [true, 'Email is required']
     },
     password: {
         type: String,
         minLength: 4,
-        required: true,
+        required: false,
     },
     type: {
         type: String,
-        required: true,
+        required: false,
     }
 });
 

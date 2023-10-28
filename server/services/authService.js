@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const bcrtypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const jwt = require ('../lib/jsonwebtoken');
 const { SECRET } = require('../constants');
 
@@ -7,8 +7,13 @@ exports.findByEmail = (email) => User.findOne({email});
 
 exports.registerAdmin = async (email, password) => {
     const hashedPassword = await bcrypt.hash(password, 10);
-    await User.create({ email, password: hashedPassword, type: "admin"})
-    return this. login(email, password)
+    console.log(hashedPassword);
+    const type = "admin";
+    console.log(email);
+    console.log(password);
+    await User.create({ email: email, password: password, type: type });
+    console.log('ready')
+    return //this.login(email, password);
 };
 
 
