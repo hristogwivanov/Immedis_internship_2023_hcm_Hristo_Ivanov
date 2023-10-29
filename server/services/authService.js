@@ -9,11 +9,8 @@ exports.registerAdmin = async (email, password) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     console.log(hashedPassword);
     const type = "admin";
-    console.log(email);
-    console.log(password);
     await User.create({ email: email, password: password, type: type });
-    console.log('ready')
-    return //this.login(email, password);
+    return
 };
 
 
