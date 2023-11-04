@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require ('../lib/jsonwebtoken');
 const { SECRET } = require('../constants');
 
-exports.findByEmail = (email) => User.findOne({email});
+exports.findByEmail = (email) => User.findOne({ email });
 
 exports.registerAdmin = async (email, password) => {
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -16,7 +16,7 @@ exports.registerAdmin = async (email, password) => {
 
 
 exports.login = async (email, password) => {
-    const user = await this.findbyEmail(email);
+    const user = await this.findByEmail(email);
 
 if (!user){
     throw new Error('User does not exist')
