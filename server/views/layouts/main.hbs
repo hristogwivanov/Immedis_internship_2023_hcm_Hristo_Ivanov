@@ -11,11 +11,15 @@
 </head>
     <header class="header">
         <nav>
-            <img src="/static/images/logo.jpg" class="logo" alt="logo image">
+            <img src="/static/images/logo.png" class="logo" alt="logo image">
             <ul>
-                
+                <li><a href="/">Home</a></li>
                 {{#if isAUthenticated}}                
+                <li><a href="/hcm/catalog">All Employess</a></li>
+                <li><a href="/hcm/create">Add New Employee</a></li>
+                <li><a href="/logout">Logout</a></li>
                 {{else}}
+                <li><a href="/login">Login</a></li>
                 {{/if}}
             </ul>
         </nav>

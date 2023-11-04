@@ -1,3 +1,7 @@
+@import './404.css';
+@import './home.css';
+
+
 * {
     background: #0F2027;
     color: aliceblue;
