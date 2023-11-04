@@ -9,7 +9,6 @@ async function execute(){
     
     try {
         const token = await registerAdmin("admin@hcm.com", "admin");
-       //res.redirect('/');
     }catch(error){
         console.log(error);
     }
