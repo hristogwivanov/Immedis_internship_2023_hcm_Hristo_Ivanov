@@ -7,6 +7,7 @@ const hcmController = require('./controllers/hcmController');
 router.use(homeController);
 router.use(authController);
 router.use('/HCM', hcmController);
+
 router.all('*', (req, res) => {
     res.render('home/404')
 });
