@@ -14,6 +14,12 @@ router.post('/login', async (req, res) => {
 
     try{
         const token = await authService.login(email, password);
+        const currentUser = await authService.findByEmail(email)
+        console.log(currentUser);
+        console.log(currentUser.type)
+        if (currentUser.type !== 'admin'){
+            throw new Error(`Unauthorized! Only admins can log in on the server.`);
+        }
         res.cookie('auth', token);
         res.redirect('/');
     } catch (error) {
