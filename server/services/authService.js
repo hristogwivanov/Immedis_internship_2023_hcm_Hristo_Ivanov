@@ -7,10 +7,19 @@ exports.findByEmail = (email) => User.findOne({ email });
 
 exports.registerAdmin = async (email, password) => {
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log(hashedPassword);
     const type = "admin";
-    await User.create({ email: email, password: password, type: type });
-    return
+    const existingUser = await User.findOne({
+        $or: [
+            { email },
+        ]
+    });
+
+    if(existingUser){
+        throw new Error('User exists');
+    }
+    
+    await User.create({ email, password: hashedPassword, type });
+    return;
 };
 
 exports.addUser = async (type, email, password, repeatPassword) => {
