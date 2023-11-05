@@ -49,7 +49,7 @@ if (!user){
 
 const isValid = await bcrypt.compare(password, user.password)
 
-if(isValid) {
+if(!isValid) {
     throw new Error('Invalid email or password')
 }
 
