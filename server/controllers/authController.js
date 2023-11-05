@@ -21,6 +21,10 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/adduser', (req, res) => {
+    res.render('auth/adduser');
+});
+
 router.get('/logout', isAuth, (req, res) => {
     res.clearCookie('auth');
     res.redirect('/');

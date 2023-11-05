@@ -1,0 +1,51 @@
+#adduser {
+    background-color: #050912;
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;
+  
+}
+
+#adduser input, select, option{
+    color: black;
+}
+
+#adduser .adduser-box {
+    width: 80%;
+    max-width: 500px;
+    margin:auto;
+}
+
+#adduser .adduser-box h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+input[type=text], input[type=password], select, option {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: large;
+  }
+  
+#adduser input[type=submit] {
+    background-color: #5a5a5a;
+    color: aliceblue;
+    padding: 14px 20px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+  }
+  
+input[type=submit]:hover {
+    opacity: 0.6;
+  }
