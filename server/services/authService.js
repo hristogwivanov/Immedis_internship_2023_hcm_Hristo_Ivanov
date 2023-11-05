@@ -13,6 +13,31 @@ exports.registerAdmin = async (email, password) => {
     return
 };
 
+exports.addUser = async (type, email, password, repeatPassword) => {
+    if(password.length<4){
+        throw new Error('Password has to be minimum 4 characters!');
+
+    }
+    if(password !== repeatPassword) {
+        throw new Error('Password missmatch!');
+    }
+
+    const existingUser = await User.findOne({
+        $or: [
+            { email },
+        ]
+    });
+
+    if(existingUser){
+        throw new Error('User exists');
+    }
+
+const hashedPassword = await bcrypt.hash(password, 10);
+
+   await User.create({ email, password: hashedPassword, type });
+
+   return;
+};
 
 
 exports.login = async (email, password) => {
