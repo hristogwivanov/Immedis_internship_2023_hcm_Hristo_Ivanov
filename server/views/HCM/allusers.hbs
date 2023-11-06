@@ -1,32 +1,25 @@
-
-    <main id="allusers">
+<main id="allusers">
     <div class="allusers-box">
         <h1>All Users</h1>
-            <table>
-        <tr>
-            <th>Email</th>
-            <th>Type</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>Hristo</td>
-            <td>Admin</td>
-            <td><button value="edit">Edit</button></td>
-        </tr>
-                <tr>
-            <td>Hristo</td>
-            <td>Admin</td>
-            <td><button value="edit">Edit</button></td>
-        </tr>
-        <tr>
-            <td>Hristo</td>
-            <td>Admin</td>
-            <td><button value="edit">Edit</button></td>
-        </tr>        <tr>
-            <td>Hristo</td>
-            <td>Admin</td>
-            <td><button value="edit">Edit</button></td>
-        </tr>
-    </table>
+        {{#if users}}
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>Type</th>
+                <th></th>
+            </tr>
+            <div class="user-rows">
+                {{#each users}}
+                {{>user}}
+                {{/each}}
+            </div>
+            <tr>
+
+        </table>
+        {{else}}
+        <div>
+            <p>There are no users found!</p>
+        </div>
+        {{/if}}
     </div>
 </main>

@@ -5,9 +5,8 @@ const hcmService = require('../services/hcmService');
 const { getErrorMessage } = require('../utils/errorUtils');
 
 router.get('/allusers', async (req, res) => {
-
-
-    res.render('HCM/allusers', {})
+    const users = await hcmService.getAllUsers();
+    res.render('HCM/allusers', { users })
 })
 
 module.exports = router; 
