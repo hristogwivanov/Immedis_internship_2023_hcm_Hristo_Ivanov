@@ -38,7 +38,6 @@ router.post('/adduser', async (req, res) => {
         const token = await authService.addUser(type, email, password, repeatPassword);
         res.redirect('/');
     }catch(error){
-        console.log('opa')
         res.status(400).render('auth/adduser', {error: getErrorMessage(error) })
     }
 
