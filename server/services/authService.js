@@ -66,7 +66,7 @@ if(!isValid) {
 const payload = {
     _id: user._id,
     email,
-    username: user.username
+    type: user.type
 };
 
 const token = await jwt.sign(payload, SECRET);

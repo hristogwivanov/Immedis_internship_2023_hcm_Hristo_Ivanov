@@ -15,8 +15,6 @@ router.post('/login', async (req, res) => {
     try{
         const token = await authService.login(email, password);
         const currentUser = await authService.findByEmail(email)
-        console.log(currentUser);
-        console.log(currentUser.type)
         if (currentUser.type !== 'admin'){
             throw new Error(`Unauthorized! Only admins can log in on the server.`);
         }
@@ -35,7 +33,7 @@ router.post('/adduser', async (req, res) => {
     const { type, email, password, repeatPassword } = req.body;
 
     try {
-        const token = await authService.addUser(type, email, password, repeatPassword);
+        await authService.addUser(type, email, password, repeatPassword);
         res.redirect('/');
     }catch(error){
         res.status(400).render('auth/adduser', {error: getErrorMessage(error) })

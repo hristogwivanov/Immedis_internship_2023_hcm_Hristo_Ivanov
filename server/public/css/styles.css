@@ -1,7 +1,9 @@
 @import './404.css';
 @import './home.css';
+@import './unauthorized.css';
 @import './login.css';
 @import './adduser.css';
+@import './edituser.css';
 @import './allusers.css';
 
 
