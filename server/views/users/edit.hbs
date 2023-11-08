@@ -2,7 +2,7 @@
     <div class="edit-page-container">
         <h1>Edit User</h1>
         <form method="POST">
-            <input type="text" name="email" value={{user.email}} placeholder="Email..">
+            <input type="text" name="email" value={{user.email}}>
             <select name="type">
                 {{#if isHR}}
                 <option value="regular">Regular</option>
@@ -12,7 +12,8 @@
                 <option value="hr">HRM</option>
                 {{/if}}
             </select>
-            <button>Change password</button>
+            <a href="/users/{{user._id}}/pwchange"><button type="button">Change Password</button></a>
+            <a href="/users/{{user._id}}/delete"><button type="button">Delete User</button></a>
             <input type="submit" value="Edit User">
     </div>
 </section>

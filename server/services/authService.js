@@ -48,6 +48,26 @@ const hashedPassword = await bcrypt.hash(password, 10);
    return;
 };
 
+exports.changePassword = async (userId, passwordInput) => {
+    const { password, repeatPassword } = passwordInput
+    if(password.length<4){
+        throw new Error('Password has to be minimum 4 characters!');
+
+    }
+    if(password !== repeatPassword) {
+        throw new Error('Password missmatch!');
+    }
+const hashedPassword = await bcrypt.hash(password, 10);
+console.log(userId)
+console.log(hashedPassword)
+const passwordData = {password: hashedPassword}
+
+await User.findByIdAndUpdate(userId, passwordData, {runValidators: true} );
+
+
+
+}
+
 
 exports.login = async (email, password) => {
     const user = await this.findByEmail(email);

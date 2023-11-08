@@ -1,0 +1,45 @@
+#delete-page{
+    background-color: #050912;
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;
+  
+}
+
+#delete-page input, select, option{
+    color: black;
+}
+
+#delete-page .delete-page-container {
+    width: 80%;
+    max-width: 500px;
+    margin:auto;
+}
+
+#delete-page .delete-page-container h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#delete-page input[type=submit], #delete-page button {
+    background-color: #8a2525;
+    color: aliceblue;
+    padding: 14px 20px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  #delete-page button {
+    background-color: rgb(50, 133, 47);
+  }
+
+  
+input[type=submit]:hover, button:hover {
+    opacity: 0.6;
+  }

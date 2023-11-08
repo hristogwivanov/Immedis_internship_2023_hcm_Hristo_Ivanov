@@ -5,6 +5,8 @@
 @import './adduser.css';
 @import './edituser.css';
 @import './allusers.css';
+@import './pwchange.css';
+@import './delete.css';
 
 
 * {

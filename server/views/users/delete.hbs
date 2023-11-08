@@ -1,0 +1,8 @@
+<section id="delete-page">
+    <div class="delete-page-container">
+        <h1>Are you sure you want to delete user {{user.email}}?</h1>
+        <form method="POST">
+            <a href="/users/{{user._id}}/edit"><button type="button">No</button></a>
+            <input type="submit" value="Yes">
+    </div>
+</section>

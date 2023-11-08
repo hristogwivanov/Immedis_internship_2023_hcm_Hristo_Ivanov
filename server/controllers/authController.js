@@ -41,9 +41,12 @@ router.post('/adduser', async (req, res) => {
 
 });
 
+
+
 router.get('/logout', isAuth, (req, res) => {
     res.clearCookie('auth');
     res.redirect('/');
 });
+
 
 module.exports = router; 
