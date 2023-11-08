@@ -5,6 +5,7 @@ const authService = require('../services/authService');
 const { isAuth } = require('../middlewares/authMiddleware');
 const { getErrorMessage } = require('../utils/errorUtils');
 
+
 router.get('/login', (req, res) => {
     res.render('auth/login');
 });
@@ -26,7 +27,8 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/adduser', (req, res) => {
-    res.render('auth/adduser');
+    let loggeduser=req.user;
+    res.render('auth/adduser', { loggeduser });
 });
 
 router.post('/adduser', async (req, res) => {
@@ -36,7 +38,8 @@ router.post('/adduser', async (req, res) => {
         await authService.addUser(type, email, password, repeatPassword);
         res.redirect('/');
     }catch(error){
-        res.status(400).render('auth/adduser', {error: getErrorMessage(error) })
+        let loggeduser=req.user;
+        res.status(400).render('auth/adduser', {loggeduser, error: getErrorMessage(error) })
     }
 
 });
