@@ -17,10 +17,13 @@ body {
 
 nav {
     width: 100%;
-    padding: 2px 0;
     display: flex;
     padding-left: 30px;
     align-items: center;
+}
+
+nav img{
+    margin: 2px 0 0 0 ;
 }
 
 .logo {

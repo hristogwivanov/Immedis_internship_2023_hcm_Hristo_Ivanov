@@ -1,0 +1,22 @@
+#login .container {
+    width: 80%;
+    max-width: 500px;
+    margin:auto;
+}
+
+#login .container h1{
+    margin-bottom: 10px;
+}
+
+#login input[type=submit] {
+    background-color: #5a5a5a;
+    color: aliceblue;
+    padding: 14px 20px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: bold;
+  }
