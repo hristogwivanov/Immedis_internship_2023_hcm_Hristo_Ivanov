@@ -18,20 +18,6 @@ Accounts Employee
 Positions - (Salary Range, Leave Days)
 Compensations
 
-
-
-9ти Ноември краен срок
-2 сървър-а, бекенд-а ще е отделно
-restFUL API beckend
-
-емп
-хр 
-админ групи 
-
-Да изпратя схема!!!! 
-
-
-
 request framework 
 
 DBSchema IO 
