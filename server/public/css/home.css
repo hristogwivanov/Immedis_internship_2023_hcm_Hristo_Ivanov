@@ -5,6 +5,10 @@
     font-family: Helvetica, Arial, sans-serif;
     color: #fff;
 }
+#right-nav-container {
+float: right;
+margin-right: 100px;
+}
 
 #home-page {
     background-color: #050912;
@@ -38,12 +42,13 @@ nav {
 }
 
 nav ul {
+    margin-left: 40px;
     flex: 1;
 }
 
 nav ul li {
     display: inline-block;
-    margin: 10px 20px;
+    margin: 20px;
 }
 
 nav ul li a {
