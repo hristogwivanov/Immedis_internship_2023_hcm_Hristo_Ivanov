@@ -58,8 +58,6 @@ exports.changePassword = async (userId, passwordInput) => {
         throw new Error('Password missmatch!');
     }
 const hashedPassword = await bcrypt.hash(password, 10);
-console.log(userId)
-console.log(hashedPassword)
 const passwordData = {password: hashedPassword}
 
 await User.findByIdAndUpdate(userId, passwordData, {runValidators: true} );

@@ -59,7 +59,6 @@ router.get('/:userId/pwchange', isAuth, async (req, res) => {
 
 router.post('/:userId/pwchange', async (req, res) => {
     const passwordData = req.body;
-    console.log (passwordData);
     const user = await usersService.getOne(req.params.userId);
     try {
         await authService.changePassword( user, passwordData);
@@ -83,6 +82,15 @@ router.get('/:userId/delete', isAuth, async (req, res) => {
     else { res.render('home/unauthorized'); }
 });
 
+router.post('/:userId/delete', async (req, res) => {
+    const user = await usersService.getOne(req.params.userId);
+    try {
+        await usersService.delete(user);
+        res.redirect('/users/allusers');
+    }catch(error){
+        res.status(400).render('users/delete', { user, error })
+    }
+});
 
 
 module.exports = router; 
