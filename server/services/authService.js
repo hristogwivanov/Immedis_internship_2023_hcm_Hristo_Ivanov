@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const jwt = require ('../lib/jsonwebtoken');
+const jwt = require('../lib/jsonwebtoken');
 const { SECRET } = require('../constants');
 
 exports.findByEmail = (email) => User.findOne({ email });
@@ -14,20 +14,20 @@ exports.registerAdmin = async (email, password) => {
         ]
     });
 
-    if(existingUser){
+    if (existingUser) {
         throw new Error('User exists');
     }
-    
+
     await User.create({ email, password: hashedPassword, type });
     return;
 };
 
 exports.addUser = async (type, email, password, repeatPassword) => {
-    if(password.length<4){
+    if (password.length < 4) {
         throw new Error('Password has to be minimum 4 characters!');
 
     }
-    if(password !== repeatPassword) {
+    if (password !== repeatPassword) {
         throw new Error('Password missmatch!');
     }
 
@@ -37,30 +37,30 @@ exports.addUser = async (type, email, password, repeatPassword) => {
         ]
     });
 
-    if(existingUser){
+    if (existingUser) {
         throw new Error('User exists');
     }
 
-const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-   await User.create({ email, password: hashedPassword, type });
+    await User.create({ email, password: hashedPassword, type });
 
-   return;
+    return;
 };
 
 exports.changePassword = async (userId, passwordInput) => {
     const { password, repeatPassword } = passwordInput
-    if(password.length<4){
+    if (password.length < 4) {
         throw new Error('Password has to be minimum 4 characters!');
 
     }
-    if(password !== repeatPassword) {
+    if (password !== repeatPassword) {
         throw new Error('Password missmatch!');
     }
-const hashedPassword = await bcrypt.hash(password, 10);
-const passwordData = {password: hashedPassword}
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const passwordData = { password: hashedPassword }
 
-await User.findByIdAndUpdate(userId, passwordData, {runValidators: true} );
+    await User.findByIdAndUpdate(userId, passwordData, { runValidators: true });
 
 
 
@@ -70,24 +70,24 @@ await User.findByIdAndUpdate(userId, passwordData, {runValidators: true} );
 exports.login = async (email, password) => {
     const user = await this.findByEmail(email);
 
-if (!user){
-    throw new Error('User does not exist')
-}
+    if (!user) {
+        throw new Error('User does not exist')
+    }
 
-const isValid = await bcrypt.compare(password, user.password)
+    const isValid = await bcrypt.compare(password, user.password)
 
-if(!isValid) {
-    throw new Error('Invalid email or password')
-}
+    if (!isValid) {
+        throw new Error('Invalid email or password')
+    }
 
-//Generate token
-const payload = {
-    _id: user._id,
-    email,
-    type: user.type
-};
+    //Generate token
+    const payload = {
+        _id: user._id,
+        email,
+        type: user.type
+    };
 
-const token = await jwt.sign(payload, SECRET);
+    const token = await jwt.sign(payload, SECRET);
 
-return token;
+    return token;
 };

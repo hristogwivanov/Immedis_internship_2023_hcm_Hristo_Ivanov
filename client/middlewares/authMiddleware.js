@@ -1,5 +1,5 @@
 const jwt = require('../lib/jsonwebtoken');
-const { SECRET } = require('../constants');
+const { SECRET } = require('../config/constants');
 
 exports.authentication = async (req, res, next) => {
     const token = req.cookies['auth'];
